@@ -83,8 +83,8 @@ const App: React.FC = () => {
       default:
         return (
           <div className="container mx-auto p-4 sm:p-6 lg:p-8">
-             <h1 className="text-3xl font-extrabold text-text-primary mb-2 animate-slide-in">Computer Accessories</h1>
-             <p className="text-text-secondary mb-8 animate-slide-in" style={{ animationDelay: '100ms' }}>Find the perfect gear to complete your setup.</p>
+             <h1 className="text-2xl sm:text-3xl font-extrabold text-text-primary mb-2 animate-slide-in">Computer Accessories</h1>
+             <p className="text-sm sm:text-base text-text-secondary mb-6 sm:mb-8 animate-slide-in" style={{ animationDelay: '100ms' }}>Find the perfect gear to complete your setup.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {products.map(p => (
                 <ProductCard key={p.id} product={p} onAddToCart={handleAddToCart} onViewProduct={handleViewProduct} />

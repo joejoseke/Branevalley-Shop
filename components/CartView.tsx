@@ -22,30 +22,30 @@ const CartView: React.FC<CartViewProps> = ({ cartItems, onUpdateQuantity, onRemo
         Continue Shopping
       </button>
 
-      <div className="bg-surface rounded-lg shadow-xl p-6">
-        <h1 className="text-3xl font-bold mb-6 text-text-primary">Your Cart</h1>
+      <div className="bg-surface rounded-lg shadow-xl p-4 sm:p-6">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-text-primary">Your Cart</h1>
         {cartItems.length === 0 ? (
           <p className="text-text-secondary text-center py-12">Your cart is empty.</p>
         ) : (
           <div>
             <div className="space-y-4">
               {cartItems.map(item => (
-                <div key={item.id} className="flex items-center justify-between p-4 bg-background rounded-md">
-                  <div className="flex items-center gap-4">
-                    <img src={item.imageUrl} alt={item.name} className="w-16 h-16 object-cover rounded-md" />
+                <div key={item.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 bg-background rounded-md">
+                  <div className="flex items-center gap-4 flex-grow w-full">
+                    <img src={item.imageUrl} alt={item.name} className="w-16 h-16 object-cover rounded-md flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-text-primary">{item.name}</h3>
                       <p className="text-text-secondary text-sm">KES {item.price.toLocaleString()}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">
                     <div className="flex items-center border border-gray-600 rounded">
-                      <button onClick={() => onUpdateQuantity(item.id, item.quantity - 1)} className="p-2 disabled:opacity-50" disabled={item.quantity <= 1}><MinusIcon className="w-4 h-4" /></button>
-                      <span className="px-3">{item.quantity}</span>
-                      <button onClick={() => onUpdateQuantity(item.id, item.quantity + 1)} className="p-2"><PlusIcon className="w-4 h-4" /></button>
+                      <button onClick={() => onUpdateQuantity(item.id, item.quantity - 1)} className="p-2 disabled:opacity-50" disabled={item.quantity <= 1} aria-label="Decrease quantity"><MinusIcon className="w-4 h-4" /></button>
+                      <span className="px-3 tabular-nums">{item.quantity}</span>
+                      <button onClick={() => onUpdateQuantity(item.id, item.quantity + 1)} className="p-2" aria-label="Increase quantity"><PlusIcon className="w-4 h-4" /></button>
                     </div>
                     <p className="font-semibold w-24 text-right">KES {(item.price * item.quantity).toLocaleString()}</p>
-                    <button onClick={() => onRemoveFromCart(item.id)} className="text-gray-500 hover:text-red-500"><XIcon className="w-5 h-5" /></button>
+                    <button onClick={() => onRemoveFromCart(item.id)} className="text-gray-500 hover:text-red-500 p-2" aria-label={`Remove ${item.name} from cart`}><XIcon className="w-5 h-5" /></button>
                   </div>
                 </div>
               ))}

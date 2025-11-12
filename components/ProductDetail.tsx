@@ -38,11 +38,11 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCart, onB
               </ul>
             </div>
 
-            <div className="mt-8 flex items-center justify-between">
-              <span className="text-4xl font-bold text-primary">KES {product.price.toLocaleString()}</span>
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <span className="text-3xl sm:text-4xl font-bold text-primary">KES {product.price.toLocaleString()}</span>
               <button
                 onClick={() => onAddToCart(product)}
-                className="bg-secondary text-white font-bold py-3 px-8 rounded-full hover:bg-primary transition-colors text-lg"
+                className="bg-secondary text-white font-bold py-3 px-8 rounded-full hover:bg-primary transition-colors text-lg w-full sm:w-auto"
               >
                 Add to Cart
               </button>

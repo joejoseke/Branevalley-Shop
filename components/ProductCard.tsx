@@ -24,10 +24,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onViewP
         <div className="absolute top-0 right-0 bg-accent text-background px-2 py-1 m-2 rounded-md text-sm font-semibold">{product.category}</div>
       </div>
       <div className="p-4 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold text-text-primary mb-2 truncate">{product.name}</h3>
+        <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2 truncate">{product.name}</h3>
         <p className="text-text-secondary text-sm flex-grow mb-4">{product.description.substring(0, 80)}...</p>
         <div className="flex items-center justify-between mt-auto">
-          <p className="text-2xl font-bold text-primary">KES {product.price.toLocaleString()}</p>
+          <p className="text-xl sm:text-2xl font-bold text-primary">KES {product.price.toLocaleString()}</p>
           <button
             onClick={handleAddToCartClick}
             className="bg-secondary text-white font-bold py-2 px-4 rounded-full hover:bg-primary transition-colors flex items-center gap-2"
